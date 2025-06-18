@@ -1,9 +1,10 @@
-import { listPostContext } from "@/contexts/listPostContext"
-import { useContext } from "react"
+"use client"
+import { usePosts } from "@/contexts/listPostContext"
+
 
 export const Footer = () => {
     
-    const listPostCtx = useContext(listPostContext);
+    const listPostCtx = usePosts();
 
     return (
         <footer>

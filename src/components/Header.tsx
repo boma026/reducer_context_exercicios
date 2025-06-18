@@ -1,13 +1,14 @@
 "use client"
-import { listPostContext } from "@/contexts/listPostContext"
-import { useContext, useState } from "react"
+import { usePosts } from "@/contexts/listPostContext"
+import { useState } from "react"
 
 export const Header = () => {
     
     const [title, setTitle] = useState<string>("");
     const [body, setBody] = useState<string>("");
 
-    const listPostCtx = useContext(listPostContext)
+    //Usando hooks personalizados
+    const listPostCtx = usePosts()
 
     //SE PASSADO O SETLISTPOST DA PRA FAZER DA FORMA ABAIXO
 
@@ -23,12 +24,23 @@ export const Header = () => {
         setBody("")
     }*/
 
-    const handleAddButton = (title: string, body: string) => {
+    //Caso passassemos a funçao  pra remover, ficaria dessa forma
+    /*const handleAddButton = (title: string, body: string) => {
         if (title.trim() === "" || body.trim() === "") return;
         listPostCtx?.addPost(title, body);
         setTitle(""),
         setBody("")
-    }  
+    }  */
+
+    const handleAddButton = (title: string, body: string) => {
+        if(title.trim() === "" || body.trim() === "") return;
+        listPostCtx?.dispatch({
+            type:"add",
+            payload: { title, body }
+        })
+        setTitle("");
+        setBody("");
+    }
 
     return (
         <header>

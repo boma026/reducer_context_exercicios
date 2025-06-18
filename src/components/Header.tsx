@@ -8,7 +8,7 @@ export const Header = () => {
     const [body, setBody] = useState<string>("");
 
     //Usando hooks personalizados
-    const listPostCtx = usePosts()
+    const listPostCtx = usePosts();
 
     //SE PASSADO O SETLISTPOST DA PRA FAZER DA FORMA ABAIXO
 

@@ -2,8 +2,6 @@ import { useChatUser } from "@/contexts/chatUserContext";
 import { useState } from "react";
 import { ChatHeader } from "./ChatHeader";
 import { Chat } from "./Chat";
-import { Welcome } from "@/contexts/Welcome";
-
 
 export const SimpleChat = () => {
 
